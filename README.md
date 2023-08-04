@@ -1,5 +1,5 @@
 # Resume
 
-Website: https://nirajgirixd.github.io/Resume/
+Website: https://nirajgirixd.github.io/portfolio/
 
 XD
