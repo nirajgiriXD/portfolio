@@ -2,10 +2,16 @@ document.addEventListener("DOMContentLoaded", (event) => {
     const username = 'nirajgiriXD';
     const pageTitle = document.querySelector('title');
     const favicon = document.querySelector('link[type="image/x-icon"]');
-    const headerUsername = document.querySelector('#header__username');
+    const userDisplayName = document.querySelectorAll('.user-display-name');
     const profileImg = document.querySelector('.profile-img');
+    const currentYear = document.getElementById('current-year');
+    
+    // Update current year.
+    if (currentYear) {
+        currentYear.innerText = new Date().getFullYear();
+    }
 
-    // AJAX for GitHub API
+    // AJAX for GitHub API.
     $.ajax({
         url: 'https://api.github.com/users/' + username,
         type: 'GET',
@@ -21,8 +27,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
         if(pageTitle) {
             pageTitle.innerText = 'Portfolio - ' + data.name;
         }
-        if(headerUsername) {
-            headerUsername.innerHTML = data.name;
+        if(userDisplayName) {
+            for(let i=0; i<userDisplayName.length; i++) {
+                userDisplayName[i].innerHTML = data.name;
+            }
         }
 
         if(profileImg) {
